@@ -89,7 +89,7 @@ if (typeof JSON.decycle !== 'function') {
 
                     nu = {};
                     var valueProperties = Object.getOwnPropertyNames(value);
-                    for (name in valueProperties) {
+                    for (name of valueProperties) {
                         if (Object.prototype.hasOwnProperty.call(value, name)) {
                             nu[name] = derez(value[name],
                                     path + '[' + JSON.stringify(name) + ']');
