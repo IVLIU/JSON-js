@@ -15,7 +15,7 @@
 
 /*jslint eval, for */
 
-/*property 
+/*property
     $ref, apply, call, decycle, hasOwnProperty, length, prototype, push,
     retrocycle, stringify, test, toString
 */
@@ -88,7 +88,8 @@ if (typeof JSON.decycle !== 'function') {
 // If it is an object, replicate the object.
 
                     nu = {};
-                    for (name in value) {
+                    var valueProperties = Object.getOwnPropertyNames(value);
+                    for (name in valueProperties) {
                         if (Object.prototype.hasOwnProperty.call(value, name)) {
                             nu[name] = derez(value[name],
                                     path + '[' + JSON.stringify(name) + ']');
